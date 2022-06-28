@@ -1,3 +1,4 @@
+from datetime import datetime
 from sqlalchemy.orm import Session
 from database import models
 
@@ -19,6 +20,10 @@ class Project(Base):
 
     def create_project(self, project_info):
         data = models.Project(**project_info.dict())
+        data['create_user'] = 'laughing'
+        data['create_time'] = datetime.now()
+        data['update_user'] = ''
+        data['update_time'] = datetime.now()
         self.db.add(data)
         self.db.commit()
         self.db.flush()

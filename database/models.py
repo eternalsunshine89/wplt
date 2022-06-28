@@ -17,8 +17,11 @@ class Project(Base):
     __tablename__ = 'project'
 
     id = Column(Integer, primary_key=True, index=True)
-    project_name = Column(String(100), unique=True, index=True)
-    platform = Column(String(50))  # 项目类型（android，iOS，webUI，api）
+    project_name = Column(String(100), unique=True, index=True)     # 项目名称
+    icon = Column(String, unique=True)                              # 项目图标
+    description = Column(Text(500))                                 # 项目描述
+    platform = Column(String(50))                                   # 项目类型（android，iOS，webUI，api）
+    version = Column(String(8))                                     # 项目版本号
     create_user = Column(String(8))
     create_time = Column(DateTime, default=datetime.now())
     update_user = Column(String(8))

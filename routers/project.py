@@ -1,6 +1,5 @@
 from fastapi import Depends
 from sqlalchemy.orm import session
-
 from database import crud
 from database.get_db import get_db
 from routers import prjRouter
