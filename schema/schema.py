@@ -19,7 +19,10 @@ class EditUser(BaseModel):
 
 
 class Project(BaseModel):
-    name: str
+    project_name: str
+    icon: str
+    description: str
+    version: str
     platform: str
 
     class Config:

@@ -3,10 +3,11 @@ from sqlalchemy.orm import session
 from database import crud
 from database.get_db import get_db
 from routers import prjRouter
+from schema.schema import Project
 
 
 @prjRouter.post("/add")
-def create_project(prj, db: session = Depends(get_db)):
+def create_project(prj: Project, db: session = Depends(get_db)):
     data = crud.Project(db).create_project(prj)
     return {'code': 200, 'data': data, 'msg': 'success'}
 
